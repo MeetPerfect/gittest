@@ -14,4 +14,21 @@ class Main{
 		
 		System.out.println(Arrays.toString(res));
 	}
+
+	public static int binarySerach(int[] nums, int target) {
+		int n = nums.length;
+		int i = 0;
+		int j = n - 1;
+		while (i < j) {
+			int m = (j - i) >>> 1 + i;
+			if (target == nums[m]) {
+				return m;
+			} else if (target > nums[m]) {
+				i = m + 1;
+			} else {
+				j = m - 1;
+			}
+		}
+		return -1;
+	}
 }
